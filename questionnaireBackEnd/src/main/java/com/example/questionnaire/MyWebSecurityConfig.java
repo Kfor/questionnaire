@@ -44,7 +44,7 @@ public class MyWebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/fillin/**","/register").permitAll()
                 .anyRequest().authenticated()
-                .and().formLogin().loginPage("http://localhost:8080/login").loginProcessingUrl("/login").successHandler(
+                .and().formLogin().loginPage("http://localhost/login").loginProcessingUrl("/login").successHandler(
                 new AuthenticationSuccessHandler() {
                     @Override
                     public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
