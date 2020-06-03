@@ -10,10 +10,7 @@ import Login from "@/views/Login.vue"
 Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
-    {
-        path: '/',
-        redirect: '/login'
-    },
+    
     {
         path: '/login',
         name: "login",
