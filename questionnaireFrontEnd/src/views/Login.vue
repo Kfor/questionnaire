@@ -28,7 +28,7 @@
         <el-form
                 v-if="registerChoose===true"
                 :rules="rules"
-                ref="loginForm"
+                ref="registerForm"
                 v-loading="loading"
                 element-loading-text="正在注册..."
                 element-loading-spinner="el-icon-loading"
