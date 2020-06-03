@@ -12,7 +12,7 @@ Vue.config.productionTip = false
 Vue.prototype.servername = 'http://localhost:8080'
 Vue.use(ElementUI)
 
-axios.defaults.baseURL = '/'
+axios.defaults.baseURL = 'http://localhost:8080'
 
 Vue.use(VueAxios, axios)
 
