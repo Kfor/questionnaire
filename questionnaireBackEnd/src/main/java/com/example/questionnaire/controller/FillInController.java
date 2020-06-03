@@ -29,12 +29,12 @@ public class FillInController {
         this.gson = gson;
     }
 
-    @GetMapping("/fillin/checkAlreadySubmit")
+    @GetMapping("/api/fillin/checkAlreadySubmit")
     public Boolean checkAlreadySubmit(@Param("questionnaireId") Integer questionnaireId, @Param("ip") String ip) {
         return fillInService.checkAlreadySubmit(questionnaireId, ip);
     }
 
-    @PostMapping("/fillin/submitAnswer")
+    @PostMapping("/api/fillin/submitAnswer")
     public String submitAnswer(@Param("questionnaireId") Integer questionnaireId, @RequestBody String answer) {
         String answerListJson = gson.fromJson(answer, JsonObject.class).get("answerList").toString();
         String ip = gson.fromJson(answer, JsonObject.class).get("ip").getAsString();
@@ -43,12 +43,12 @@ public class FillInController {
         return "";
     }
 
-    @GetMapping("/fillin/getQuestionList")
+    @GetMapping("/api/fillin/getQuestionList")
     public String getQuestionList(@Param("questionnaireId") Integer questionnaireId) {
         return createService.getQuestionList(questionnaireId);
     }
 
-    @GetMapping("/fillin/getQuestionnaireOutline")
+    @GetMapping("/api/fillin/getQuestionnaireOutline")
     public String getQuestionnaireOutline(@Param("questionnaireId") Integer questionnaireId) {
         return createService.getQuestionnaireOutline(questionnaireId);
     }

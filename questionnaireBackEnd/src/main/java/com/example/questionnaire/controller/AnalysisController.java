@@ -22,22 +22,17 @@ public class AnalysisController {
         this.analysisService = analysisService;
     }
 
-    @GetMapping("/hello")
-    public String hello() {
-        return "hello";
-    }
-
-    @GetMapping("/getQuestionnaires")
+    @GetMapping("/api/getQuestionnaires")
     public String getQuestionnaires(Authentication authentication) {
         return analysisService.getQuestionnairesByUsername(authentication.getName());
     }
 
-    @GetMapping("/getQuestionValueList")
+    @GetMapping("/api/getQuestionValueList")
     public String getQuestionValueList(@Param("questionId") Integer questionId) {
         return analysisService.getQuestionValueList(questionId);
     }
 
-    @GetMapping("/getWriteValue")
+    @GetMapping("/api/getWriteValue")
     public String getWriteValue(@Param("questionId") Integer questionId) {
         return analysisService.getWriteValue(questionId);
     }

@@ -21,29 +21,29 @@ public class CreateController {
         this.gson = gson;
     }
 
-    @GetMapping("/createQuestionnaire")
+    @GetMapping("/api/createQuestionnaire")
     public String createQuestionnaire(Authentication authentication) {
         return createService.createQuestionnaire(authentication.getName());
     }
 
-    @PostMapping("/saveQuestionnaire")
+    @PostMapping("/api/saveQuestionnaire")
     public String saveQuestionnaire(@RequestBody String body) {
         String questionList = gson.fromJson(body, JsonObject.class).get("questionList").toString();
         String questionnaire = gson.fromJson(body, JsonObject.class).get("questionnaire").toString();
         return createService.saveQuestionnaire(questionnaire, questionList);
     }
 
-    @PostMapping("/saveQuestionnaireOutline")
+    @PostMapping("/api/saveQuestionnaireOutline")
     public String saveQuestionnaireOutline(@RequestBody String questionnaire) {
         return createService.saveQuestionnaireOutline(gson.fromJson(questionnaire, JsonObject.class).get("questionnaire").toString());
     }
 
-    @PostMapping("/saveOneQuestion")
+    @PostMapping("/api/saveOneQuestion")
     public String saveOneQuestion(@RequestBody String oneQuestion, @Param("questionnaireId") Integer questionnaireId) {
         return createService.saveOneQuestion(gson.fromJson(oneQuestion, JsonObject.class).get("question").toString(), questionnaireId);
     }
 
-    @GetMapping("/deleteQuestionnaire")
+    @GetMapping("/api/deleteQuestionnaire")
     public String deleteQuestionnaire(@Param("questionnaireId") Integer questionnaireId) {
         return createService.deleteQuestionnaire(questionnaireId);
     }
@@ -77,27 +77,23 @@ public class CreateController {
      * },
      * ]
      */
-    @GetMapping("/getQuestionList")
+    @GetMapping("/api/getQuestionList")
     public String getQuestionList(@Param("questionnaireId") Integer questionnaireId) {
         return createService.getQuestionList(questionnaireId);
     }
 
-    @GetMapping("/getQuestionnaireOutline")
+    @GetMapping("/api/getQuestionnaireOutline")
     public String getQuestionnaireOutline(@Param("questionnaireId") Integer questionnaireId) {
         return createService.getQuestionnaireOutline(questionnaireId);
     }
 
-    @PostMapping("/releaseQuestionnaire")
+    @PostMapping("/api/releaseQuestionnaire")
     public String releaseQuestionnaire(@Param("questionnaireId") Integer questionnaireId) {
         return createService.releaseQuestionnaire(questionnaireId);
     }
 
-    @PostMapping("/closeQuestionnaire")
+    @PostMapping("/api/closeQuestionnaire")
     public String closeQuestionnaire(@Param("questionnaireId") Integer questionnaireId) {
         return createService.closeQuestionnaire(questionnaireId);
     }
-
-
-
-
 }

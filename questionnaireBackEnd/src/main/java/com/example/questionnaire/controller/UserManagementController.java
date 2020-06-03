@@ -22,7 +22,7 @@ public class UserManagementController {
 //        return loginService.login(username,password);
 //    }
 
-    @PostMapping("/register")
+    @PostMapping("/api/register")
     public String register(@Param("username") String username, @Param("password") String password) {
         return loginService.reg(username, password);
     }

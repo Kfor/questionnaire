@@ -42,9 +42,9 @@ public class MyWebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/fillin/**","/register").permitAll()
+        http.authorizeRequests().antMatchers("/api/fillin/**","/fillin/**","/register").permitAll()
                 .anyRequest().authenticated()
-                .and().formLogin().loginPage("http://localhost/login").loginProcessingUrl("/login").successHandler(
+                .and().formLogin().loginPage("/index.html#/login").loginProcessingUrl("/api/login").successHandler(
                 new AuthenticationSuccessHandler() {
                     @Override
                     public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
@@ -67,7 +67,8 @@ public class MyWebSecurityConfig extends WebSecurityConfigurerAdapter {
                 out.flush();
                 out.close();
             }
-        }).and().logout().logoutUrl("/logout").clearAuthentication(true).invalidateHttpSession(true).addLogoutHandler(new LogoutHandler() {
+        }).permitAll()
+                .and().logout().logoutUrl("/api/logout").clearAuthentication(true).invalidateHttpSession(true).addLogoutHandler(new LogoutHandler() {
             @Override
             public void logout(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) {
             }
