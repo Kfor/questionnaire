@@ -9,7 +9,8 @@ import router from './router'
 import store from './store'
 
 Vue.config.productionTip = false
-Vue.prototype.servername = 'http://39.107.66.30/'// 'http://kforquestionnaire.xyz'
+Vue.prototype.servername = 'http://39.107.66.30'
+// 'http://kforquestionnaire.xyz'
 Vue.use(ElementUI)
 
 axios.defaults.baseURL = '/'
