@@ -49,7 +49,7 @@ public class MyWebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/api/fillin/**","/fillin/**","/register").permitAll()
                 .anyRequest().authenticated()
-                .and().cors().and().formLogin().loginPage("/login").loginProcessingUrl("/api/login").successHandler(
+                .and().formLogin().loginPage("http://localhost:81/login").loginProcessingUrl("/api/login").successHandler(
                 new AuthenticationSuccessHandler() {
                     @Override
                     public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
