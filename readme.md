@@ -15,6 +15,6 @@
 
   <img src="./img/collection.jpg">
 
-<img src="./img/collection-2.jpg">
+<img src="./img/collection-2.jpg"><img src="./img/analysis.jpg"><img src="./img/create.jpg">
 
 <img src="./img/fillin.jpg" style="zoom:50%">
