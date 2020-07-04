@@ -100,7 +100,7 @@
             submitRegister() {
                 this.$refs.registerForm.validate((valid) => {
                     if (valid) {
-                        this.axios.post('/api/register?username=' + this.loginForm.username + '&password=' + this.loginForm.password).then((res) => {
+                        this.axios.post('/api/register?username=' + this.registerForm.username + '&password=' + this.registerForm.password).then((res) => {
                             this.loading = false;
                             if(res.data==='usernameAlready'){
                                 this.$message.error({message:'用户名已注册！',duration:1000});
