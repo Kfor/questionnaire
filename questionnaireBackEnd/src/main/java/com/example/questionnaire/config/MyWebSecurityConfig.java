@@ -47,7 +47,7 @@ public class MyWebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/api/fillin/**","/fillin/**","/register").permitAll()
+        http.authorizeRequests().antMatchers("/api/fillin/**","/fillin/**","/register","/api/register").permitAll()
                 .anyRequest().authenticated()
                 .and().formLogin().loginPage("http://localhost/login").loginProcessingUrl("/api/login").successHandler(
                 new AuthenticationSuccessHandler() {
